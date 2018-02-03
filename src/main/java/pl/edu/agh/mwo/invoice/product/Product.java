@@ -10,14 +10,20 @@ public abstract class Product {
 	private final BigDecimal taxPercent;
 
 	protected Product(String name, BigDecimal price, BigDecimal tax) {
+		if (name==null|| name.isEmpty()||price == null || price.signum()==-1){
+			throw new IllegalArgumentException("ni ma nazwy ");
+		}
 		this.name = name;
 		this.price = price;
+		
+		
 		this.taxPercent = tax;
 	}
 
 	public String getName() {
-		return name;
+	return name;
 	}
+	
 
 	public BigDecimal getPrice() {
 		return price;
